@@ -1,4 +1,13 @@
-<link rel="stylesheet" href="https://cdn.tms-dist.lan:433/styles/css/custom.css" type="text/css" />
+<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/custom.css" type="text/css" />
+<script>
+    var div = document.getElementById('ver');
+    if (div !== null)
+        div.addEventListener("click", function() {
+            $("#status").css({
+                'display': 'block'
+            });
+        });
+</script>
 <?php session_start();
 include('db.inc.php');
 $sql = 'select * from accounts where confirm = 0';
@@ -10,9 +19,9 @@ if (!$sql) {
         echo '<div id="no_verify" class="container contain alert alert-info tms-center col-md-12" style="margin-top:50px">
         No users to verify at this moment.</div>';
     } else {
-        ?>
-        <div id="ver_det" class="col-md-12 col-xs-12" style="">
-            <table border="1" class="col-xs-12 col-md-12 col-lg-12" style="">
+?>
+        <div id="ver_det" class="col-md-12 col-xs-12">
+            <table border="1" class="col-xs-12 col-md-12 col-lg-12">
                 <th colspan=4 style="font-size:20px; color:antiquewhite;text-align:center">Users to be verified
                 </th>
                 <tr class="tms-center" colspan=4>
@@ -34,17 +43,24 @@ if (!$sql) {
                             else echo 'Unknown level';
                             ?></td>
                         <td>
-                            <input type="checkbox" name="id" onclick="verify(<?php echo $id; ?>)">
+                            <input id="ver" type="checkbox" name="id" onclick="verify(<?php echo $id; ?>)">
                         </td>
                     </tr>
                 <?php } ?>
             </table>
         </div>
-        <div id="status"></div>
-    <?php
-}
+        <div id="status" onclick="fadeout()" class="modal" style="display:none"></div>
+<?php
+    }
 }
 echo "<script>
+function fadeout() {
+    log('Status gone')
+    $('#status').css({
+        display: 'none'
+    });
+    $('#verify').load('/includes/ver.php');
+}
 $('#no_verify').ready(function(){
     var div = document.getElementById('verify');
     div.style.display = 'block';
@@ -57,3 +73,19 @@ $('#no_verify').ready(function() {
 });
 </script>";
 ?>
+<style>
+    .modal {
+        display: block;
+        position: fixed;
+        z-index: 3;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgb(0, 0, 0);
+        background-color:
+            rgba(0, 0, 0, 0.4);
+        padding-top: 100px;
+    }
+</style>

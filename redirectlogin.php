@@ -5,11 +5,11 @@
     <meta http-equiv="X-UA-Compatible" content="IE-edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>TMS : Redirect Login</title>
-    <script src="https://cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>
-    <link rel="stylesheet" href="https://cdn.tms-dist.lan:433/styles/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://cdn.tms-dist.lan:433/styles/css/custom.css">
-    <link rel="stylesheet" href="https://cdn.tms-dist.lan:433/styles/css/style.css">
-    <script src="https://cdn.tms-dist.lan:433/styles/js/main.js"></script>
+    <script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>
+    <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/custom.css">
+    <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/style.css">
+    <script src="//cdn.tms-dist.lan:433/styles/js/main.js"></script>
 </head>
 <style>
     body {
@@ -18,18 +18,12 @@
 </style>
 
 <body>
-    <script>
-        function setref(val) {
-            ref = '"'+val'"';
-            log(ref);
-            log("window.location.href = '"+ref+"'");
-        }
-    </script>
     <?php
     if(isset($_GET['cont']) && $_GET['cont'] !== null){
-        echo '<script>setref("'.$_GET['cont'].'")</script>';
+        echo '<script>window.cont="'.$_GET['cont'].'".concat(location.hash)</script>';
     }
     ?>
+    
     <div class="container">
         <div class="row">
             <div class="col-sm-6 col-md-4 col-md-offset-4 text-center">
@@ -48,7 +42,7 @@
                                 <div class="field-wrapper">
                                     <input type="email" name="user" id="email" class="form-control input-lg">
                                     <div class="field-placeholder">
-                                        <span>Enter your Email</span>
+                                        <span>Enter your Email or Username</span>
                                     </div>
                                 </div>
                                 <span class="error_msg" id="error_msg"></span>
@@ -113,11 +107,11 @@
             });
         });
     </script>
-    <script src="https://cdn.tms-dist.lan:433/styles/js/bootstrap.min.js"></script>
-    <script src="https://cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>
-    <script src="https://cdn.tms-dist.lan:433/styles/js/jquery.easing.min.js"></script>
-    <script src="https://cdn.tms-dist.lan:433/styles/js/loginvalidation.js"></script>
-    <script src="https://cdn.tms-dist.lan:433/styles/js/control.js"></script>
+    <script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>
+    <script src="//cdn.tms-dist.lan:433/styles/js/bootstrap.min.js"></script>
+    <script src="//cdn.tms-dist.lan:433/styles/js/jquery.easing.min.js"></script>
+    <script src="//cdn.tms-dist.lan:433/styles/js/loginvalidation.js"></script>
+    <script src="//cdn.tms-dist.lan:433/styles/js/control.js"></script>
 </body>
 
 </html>

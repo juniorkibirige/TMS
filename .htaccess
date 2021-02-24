@@ -5,3 +5,4 @@ ErrorDocument 404 /error/404Error.html
 ErrorDocument 500 /error/internal-server-error.html
 
 Options -Indexes
+DirectoryIndex index.php

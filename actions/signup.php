@@ -7,7 +7,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $email = mysqli_real_escape_string($con, $_POST['email']);
     $nin = mysqli_real_escape_string($con, $_POST['NIN']);
     $level = 1;
-    $authkey = md5($_POST['user']);
+    $authkey = md5($_POST['user'].Date(U));
     if($_POST['acc_man'] == 'on'){
         $level = 1;
         $nin = 'insert into NINS(NIN,fName, lName) values("'.$nin.'","'.$fName.'","'.$lName.'")';
@@ -25,12 +25,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
         $nin = 'insert into NINS(NIN,fName, lName) values("'.$nin.'","'.$fName.'","'.$lName.'")';
         $sql = 'insert into Clientele(NIN,fName,lName,Tel,Email) values ("'.$nin.'","'.$fName.'","'.$lName.'","0","'.$email.'");';
     } else {
-        setcookie('info','User account specification not set.',time()+10,'/','.tms.lan',true,true);
-        setcookie('uname',base64_encode($username),time()+10,'/','.tms.lan',true,true);
-        setcookie('fName',base64_encode($fName),time()+10,'/','.tms.lan',true,true);
-        setcookie('lName',base64_encode($lName),time()+10,'/','.tms.lan',true,true);
-        setcookie('email',base64_encode($email),time()+10,'/','.tms.lan',true,true);
-        setcookie('nin',base64_encode($nin),time()+10,'/','.tms.lan',true,true);
+        setcookie('info','User account specification not set.',time()+10,'/','.tmsystem.live',true,true);
+        setcookie('uname',base64_encode($username),time()+10,'/','.tmsystem.live',true,true);
+        setcookie('fName',base64_encode($fName),time()+10,'/','.tmsystem.live',true,true);
+        setcookie('lName',base64_encode($lName),time()+10,'/','.tmsystem.live',true,true);
+        setcookie('email',base64_encode($email),time()+10,'/','.tmsystem.live',true,true);
+        setcookie('nin',base64_encode($nin),time()+10,'/','.tmsystem.live',true,true);
         header('Location: /');
     }
     $userdata = 'insert into accounts(NIN,username,level,authkey) values ("'.$nin.'","'.$username.'","'.$level.'","'.$authkey.'");';

@@ -2,16 +2,22 @@
 include('../includes/db.inc.php');
 if (isset($_POST['user']) && (isset($_POST['passwd']))) {
     if (!empty($_POST['passwd'])) {
-        $query = "select * from accounts where pass ='" . md5($_POST['passwd']) . "' and username = '" . $_POST['user'] . "' limit 1";
+        $query = "select * from accounts where username = '" . $_POST['user'] . "' and pass = '" . md5($_POST['passwd']) . "'";
         $query = mysqli_query($con, $query);
+        $d = mysqli_error($con);
         $num = mysqli_num_rows($query);
         if ($num == 1) {
             if (isset($_POST['remember'])) {
-                setcookie('user', base64_encode($_POST['user']), time() + 60 * 60 * 24 * 2, '/', 'tms.lan', true, true);
-                setcookie('passwd', base64_encode($_POST['passwd']), time() + 60 * 60 * 24 * 2, '/', 'tms.lan', true, true);
+                setcookie('user', base64_encode($_POST['user']), time() + 60 * 60 * 24 * 2, '/', 'tmsystem.live', true, true);
+                setcookie('passwd', base64_encode($_POST['passwd']), time() + 60 * 60 * 24 * 2, '/', 'tmsystem.live', true, true);
             }
+            $U = base64_encode($_POST['user']);
+            $P = base64_encode($_POST['passwd']);
+            setcookie('token',base64_encode($U.'!&@'.$P),time()+60*60*24*7,'/','tmsystem.live',true,true);
             $result = mysqli_fetch_assoc($query);
             $action = "SHOW_SUCCESS";
+            $online = 'update accounts set status = 1 where NIN = "'.$result['NIN'].'"';
+            $online = mysqli_query($con, $online);
             $sql = "select fName, lName from NINS where NIN = '" . $result['NIN'] . "'";
             $sql = mysqli_query($con, $sql);
             if (!$sql) echo '<br>Error: ' . mysqli_error($con);
@@ -25,37 +31,37 @@ if (isset($_POST['user']) && (isset($_POST['passwd']))) {
                 $level = $result['level'];
                 if ($result['level'] == 1) {
                     $_SESSION['manager_logged_in'] = true;
-                    setcookie('mlogin', true, time() + 60 * 60 * 24 * 2, '/', 'tms.lan', true, true);
+                    setcookie('mlogin', true, time() + 60 * 60 * 24 * 2, '/', 'tmsystem.live', true, true);
                     $_SESSION['logged_in'] = true;
                     $_SESSION['fName'] = $results['fName'];
                     $_SESSION['lName'] = $results['lName'];
-                    $_SESSION['id'] = $ten_id['ten_id'];
-                    setcookie("return", 1, time() + 60 * 60 * 10, '/', 'tms.lan', true, true);
-                    setcookie("login", "login", time() + 60 * 60 * 24 * 7, '/', 'tms.lan', true, true);
+                    $_SESSION['id'] = $nin;
+                    setcookie("return", 1, time() + 60 * 60 * 10, '/', 'tmsystem.live', true, true);
+                    setcookie("login", "login", time() + 60 * 60 * 24 * 7, '/', 'tmsystem.live', true, true);
                 } else if ($result['level'] == 2) {
                     $_SESSION['cashier_logged_in'] = true;
                     $_SESSION['logged_in'] = true;
                     $_SESSION['fName'] = $results['fName'];
                     $_SESSION['lName'] = $results['lName'];
-                    $_SESSION['id'] = $ten_id['ten_id'];
-                    setcookie("return", 1, time() + 60 * 60 * 10, '/', 'tms.lan', true, true);
-                    setcookie("login", "login", time() + 60 * 60 * 24 * 7, '/', 'tms.lan', true, true);
+                    $_SESSION['id'] = $nin;
+                    setcookie("return", 1, time() + 60 * 60 * 10, '/', 'tmsystem.live', true, true);
+                    setcookie("login", "login", time() + 60 * 60 * 24 * 7, '/', 'tmsystem.live', true, true);
                 } else if ($result['level'] == 3) {
                     $_SESSION['trainer_logged_in'] == true;
                     $_SESSION['logged_in'] = true;
                     $_SESSION['fName'] = $results['fName'];
                     $_SESSION['lName'] = $results['lName'];
-                    $_SESSION['id'] = $ten_id['ten_id'];
-                    setcookie("return", 1, time() + 60 * 60 * 10, '/', 'tms.lan', true, true);
-                    setcookie("login", "login", time() + 60 * 60 * 24 * 7, '/', 'tms.lan', true, true);
+                    $_SESSION['id'] = $nin;
+                    setcookie("return", 1, time() + 60 * 60 * 10, '/', 'tmsystem.live', true, true);
+                    setcookie("login", "login", time() + 60 * 60 * 24 * 7, '/', 'tmsystem.live', true, true);
                 } else if ($result['level'] == 4) {
                     $_SESSION['client_logged_in'] = true;
                     $_SESSION['logged_in'] = true;
                     $_SESSION['fName'] = $results['fName'];
                     $_SESSION['lName'] = $results['lName'];
-                    $_SESSION['id'] = $ten_id['ten_id'];
-                    setcookie("return", 1, time() + 60 * 60 * 10, '/', 'tms.lan', true, true);
-                    setcookie("login", "login", time() + 60 * 60 * 24 * 7, '/', 'tms.lan', true, true);
+                    $_SESSION['id'] = $nin;
+                    setcookie("return", 1, time() + 60 * 60 * 10, '/', 'tmsystem.live', true, true);
+                    setcookie("login", "login", time() + 60 * 60 * 24 * 7, '/', 'tmsystem.live', true, true);
                 }
             }
             $msg = "Successfully Logged in. Thank you ...";
@@ -72,7 +78,8 @@ if (isset($_POST['user']) && (isset($_POST['passwd']))) {
             echo json_encode(
                 array(
                     'action' => $action,
-                    'msg' => $msg
+                    'msg' => $msg,
+                    'query' => "select * from accounts where username = '" . $_POST['user'] . "' and pass = '" . md5($_POST['passwd']) . "'"
                 )
             );
         }

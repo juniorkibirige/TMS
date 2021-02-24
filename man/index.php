@@ -7,15 +7,15 @@
 	<title>Tenant Management System : Manager</title>
 	<link rel="icon" href="/images/favicon.png" type="image/png" />
 	<link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
-	<script src="https://cdn.tms-dist.lan:433/styles/js/ver.js"></script>
-	<script src="https://cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
-	<script src="https://cdn.tms-dist.lan:433/styles/js/main.js"></script>
-	<script src="https://cdn.tms-dist.lan:433/styles/js/jquery-2.1.3.min.js"
+	<script src="//cdn.tms-dist.lan:433/styles/js/ver.js"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/main.js"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/jquery-2.1.3.min.js"
 	crossorigin="anonymous"></script>
-	<script src="https://cdn.tms-dist.lan:433/styles/js/tenants.min.js"></script>
-	<link rel="stylesheet" href="https://cdn.tms-dist.lan:433/styles/css/bootstrap.min.css" type="text/css" />
-	<link rel="stylesheet" href="https://cdn.tms-dist.lan:433/styles/css/man-custom.css" type="text/css" />
-	<link rel="stylesheet" href="https://cdn.tms-dist.lan:433/styles/css/custom.css" type="text/css" />
+	<script src="//cdn.tms-dist.lan:433/styles/js/tenants.min.js"></script>
+	<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/bootstrap.min.css" type="text/css" />
+	<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/man-custom.css" type="text/css" />
+	<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/custom.css" type="text/css" />
 </head>
 
 <body>
@@ -34,8 +34,8 @@
 	?>
 	<div id="LTContent"></div>
 	</div>
-	<script src="https://cdn.tms-dist.lan:433/styles/js/bootstrap.min.js"></script>
-	<script src="https://cdn.tms-dist.lan:433/styles/js/jquery-2.1.3.min.js"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/bootstrap.min.js"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/jquery-2.1.3.min.js"></script>
 	<script>
 		loadprerequisites();
 	</script>

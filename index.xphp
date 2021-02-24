@@ -1,0 +1,57 @@
+<?php
+$ret;
+if (isset($_COOKIE['login']) && $_COOKIE['login'] == "login" && isset($_COOKIE['user']) && isset($_COOKIE['passwd'])) {
+	echo '<script>
+		window.location = "https://www.tmsystem.live/actions/login.php?user='.$_COOKIE['user'].'&passwd='.$_COOKIE['passwd'].'";
+	</script>';
+}
+?>
+<html>
+
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Tenant Management Systems</title>
+	<link rel="icon" href="/images/favicon.png" type="image/png" />
+	<link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
+	<script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/tenants.min.js" crossorigin="anonymous"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/main.js" crossorigin="anonymous"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/ver.js" crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/bootstrap.min.css" crossorigin="anonymous" type="text/css" />
+	<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/custom.css" crossorigin="anonymous" type="text/css" />
+	<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/style.css" crossorigin="anonymous" />
+</head>
+
+<body>
+	<div id="header"></div>
+	<div id="dialog"></div>
+	<div class="container">
+		<div id="content" class="content col-xs-12"></div>
+		<div id="photos" class="content col-xs-12"></div>
+		<div id="verify" class="content col-xs-12"></div>
+		<div id="LTContent"></div>
+	</div>
+	<div id="footer"></div>
+	<script>
+		loadprerequisites();
+	</script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/bootstrap.min.js" crossorigin="anonymous"></script>
+<!--Start of Tawk.to Script -->
+<script type="text/javascript">
+// var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+// (function(){-->
+// var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+// s1.async=true;
+// s1.src='http://embed.tawk.to/5d9f008ffbec0f2fe3b90bab/default';
+// s1.charset='UTF-8';
+// s1.setAttribute('crossorigin','*');
+// s0.parentNode.insertBefore(s1,s0);
+// })();
+</script>
+<!--End of Tawk.to Script-->
+</body>
+
+</html>

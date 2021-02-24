@@ -1,8 +1,8 @@
 <?php
 $DB_HOST = 'localhost';
-$DB_USER = 'admin.olympia.lan';
-$DB_PASSWD = 'Computer!@#4';
-$DB_BASE = 'olympia_RSD';
+$DB_USER = 'development';
+$DB_PASSWD = 'Computer@#4';
+$DB_BASE = 'tenant_management_sys';
 
 $con = mysqli_connect($DB_HOST,$DB_USER,$DB_PASSWD);
 if(!$con){
