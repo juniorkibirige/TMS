@@ -2,7 +2,7 @@
 $ret;
 if (isset($_COOKIE['login']) && $_COOKIE['login'] == "login" && isset($_COOKIE['user']) && isset($_COOKIE['passwd'])) {
 	echo '<script>
-		window.location = "https://www.tmsystem.live/actions/login.php?user='.$_COOKIE['user'].'&passwd='.$_COOKIE['passwd'].'";
+		window.location = "https://www.tms.lan/actions/login.php?user='.$_COOKIE['user'].'&passwd='.$_COOKIE['passwd'].'";
 	</script>';
 }
 ?>

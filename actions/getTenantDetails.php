@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<link rel="stylesheet" href="//cdn.tms-dist.lan:433:433/styles/css/bootstrap.min.css">
+<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/bootstrap.min.css">
 <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:500,300,700,400italic,400">
 <style>
     body {
@@ -790,7 +790,7 @@
     <script>
         $.getScript('//cdn.tms-dist.lan:433:433/styles/js/jquery-3.4.1.min.js', () => {
             $.getScript('//cdn.tms-dist.lan:433:433/styles/jquery-ui/jquery-ui.min.js')
-            $('body').children(':last-child').after('<link rel="stylesheet" href="//cdn.tms-dist.lan:433:433/styles/jquery-ui/jquery-ui.min.css">')
+            $('body').children(':last-child').after('<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/jquery-ui/jquery-ui.min.css">')
         })
     </script>
 </body>

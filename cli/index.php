@@ -23,7 +23,7 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == false) {
     <link rel="shortcut icon" href="/images/favicon.png" type="image/png" />
     <script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     <script src="//cdn.tms-dist.lan:433/styles/js/tenants.min.js" crossorigin="anonymous"></script>
-    <script src="//cdn.tms-dist.lan:433/styles/js/main.js" crossorigin="anonymous"></script>
+    <script src="//cdn.tms-dist.lan:433/styles/js/main.js" crossorigin="anonymous" async></script>
     <script src="//cdn.tms-dist.lan:433/styles/js/ver.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/bootstrap.min.css" crossorigin="anonymous" type="text/css" />
     <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/custom.css" crossorigin="anonymous" type="text/css" />

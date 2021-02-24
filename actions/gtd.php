@@ -8,10 +8,10 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
     if ($_POST['ver'] != 'Zm9ydGhlbG92ZW9mdG1zKGMpcGxlYXNlZG9ub3R1c2VzdHlsaW5nc2Vsc2V3aGVyZQ==') {
         $rest['err'] = 'Script is missing required verification parameters';
     } else {
-        // die(var_dump(base64_decode($_POST['t'])));
         if (base64_decode($_POST['t']) == 'ten_name') {
             $rest['_info'] = 'Provided Tenant Name!';
             if (count(explode(' ', base64_decode($_POST['sp']))) > 1) {
+                $rest[1] = "OK";
                 $names = explode(' ', base64_decode($_POST['sp']));
                 if (count($names) == 2) {
                     $fn = explode(' ', base64_decode($_POST['sp']))[1];
@@ -20,7 +20,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                     $fn = $names[0] . ' ' . $names[1];
                     $ln = $names[2];
                 }
-            } else return 0;
+            } else return json_encode($rest);
             $init = 'select * from NINS where fName = "' . $fn . '"';
             $init = mysqli_query($con, $init);
             if (!$init) {
@@ -49,7 +49,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                                         else {
                                             $data = mysqli_fetch_assoc($init);
                                             $nin = $data['NIN'];
-                                            $tenDet = json_decode(curlpost('https://www.tmsystem.live/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
+                                            $tenDet = json_decode(curlpost('https://www.tms.lan/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
 
                                             $rest['data'] = $tenDet;
                                             $rest['_teninfo']['fn'] = $tenDet->names->fName;
@@ -73,7 +73,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                                 } else {
                                     $data = mysqli_fetch_assoc($init);
                                     $nin = $data['NIN'];
-                                    $tenDet = json_decode(curlpost('https://www.tmsystem.live/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
+                                    $tenDet = json_decode(curlpost('https://www.tms.lan/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
 
                                     $rest['data'] = $tenDet;
                                     $rest['_teninfo']['fn'] = $tenDet->names->fName;
@@ -97,7 +97,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                         } else {
                             $data = mysqli_fetch_assoc($init);
                             $nin = $data['NIN'];
-                            $tenDet = json_decode(curlpost('https://www.tmsystem.live/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
+                            $tenDet = json_decode(curlpost('https://www.tms.lan/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
                             $rest['_teninfo']['fn'] = $tenDet->names->fName;
                             $rest['_teninfo']['fl'] = $tenDet->names->lName;
                             $rest['_teninfo']['nin'] = $tenDet->names->nin;
@@ -134,7 +134,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                                     else {
                                         $data = mysqli_fetch_assoc($init);
                                         $nin = $data['NIN'];
-                                        $tenDet = json_decode(curlpost('https://www.tmsystem.live/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
+                                        $tenDet = json_decode(curlpost('https://www.tms.lan/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
 
                                         $rest['data'] = $tenDet;
                                         $rest['_teninfo']['fn'] = $tenDet->names->fName;
@@ -158,7 +158,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                             } else {
                                 $data = mysqli_fetch_assoc($init);
                                 $nin = $data['NIN'];
-                                $tenDet = json_decode(curlpost('https://www.tmsystem.live/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
+                                $tenDet = json_decode(curlpost('https://www.tms.lan/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
                                 $rest['_teninfo']['fn'] = $tenDet->names->fName;
                                 $rest['_teninfo']['fl'] = $tenDet->names->lName;
                                 $rest['_teninfo']['nin'] = $tenDet->names->nin;
@@ -180,7 +180,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
                     } else {
                         $data = mysqli_fetch_assoc($init);
                         $nin = $data['NIN'];
-                        $tenDet = json_decode(curlpost('https://www.tmsystem.live/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
+                        $tenDet = json_decode(curlpost('https://www.tms.lan/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
                         $rest['_teninfo']['fn'] = $tenDet->names->fName;
                         $rest['_teninfo']['fl'] = $tenDet->names->lName;
                         $rest['_teninfo']['nin'] = $tenDet->names->nin;
@@ -247,7 +247,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
         } else if (base64_decode($_POST['t']) == 'ten_nin') {
             $rest['_info'] = 'Provided National ID Number!';
             $nin = base64_decode($_POST['sp']);
-            $tenDet = json_decode(curlpost('https://www.tmsystem.live/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
+            $tenDet = json_decode(curlpost('https://www.tms.lan/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
             if (isset($tenDet->msg)) {
                 $rest['err'] = $tenDet->msg;
             } else {
@@ -285,7 +285,7 @@ if ($_SERVER['REQUEST_METHOD'] != 'POST') {
             $init = !$init ? die(mysqli_error($con)) : mysqli_fetch_assoc($init)['house_id'];
             $nin = mysqli_query($con, "select ten_nin from tenant_details where house_id = '$init'");
             $nin = !$nin ? die(mysqli_error($con)) : mysqli_fetch_assoc($nin)['ten_nin'];
-            $tenDet = json_decode(curlpost('https://www.tmsystem.live/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
+            $tenDet = json_decode(curlpost('https://www.tms.lan/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $nin]));
             if (isset($tenDet->msg)) {
                 $rest['err'] = $tenDet->msg;
             } else {

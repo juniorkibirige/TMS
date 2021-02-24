@@ -15,8 +15,8 @@ if (isset($_COOKIE['login']) && $_COOKIE['login'] == "login" && isset($_COOKIE['
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<?php include_once("../actions/gtag.php"); ?>
 	<title>TMS : Home</title>
-	<link href="//cdn.tms-dist.lan:433:433/styles/fonts/Heebo_Googlefont.css" rel="stylesheet">
-	<link href="//cdn.tms-dist.lan:433:433/styles/css/bootstrap.min.css" rel="stylesheet">
+	<link href="//cdn.tms-dist.lan:433/styles/fonts/Heebo_Googlefont.css" rel="stylesheet">
+	<link href="//cdn.tms-dist.lan:433/styles/css/bootstrap.min.css" rel="stylesheet">
 	<link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css">
 	</link>
 	<link rel="stylesheet" href="dist/css/style.css">
@@ -743,11 +743,11 @@ if (isset($_COOKIE['login']) && $_COOKIE['login'] == "login" && isset($_COOKIE['
 			</main>
 		</div>
 	</div>
-	<script src="//cdn.tms-dist.lan:433:433/styles/js/jquery-3.4.1.min.js"></script>
-	<script src="//cdn.tms-dist.lan:433:433/styles/js/bootstrap.js"></script>
-	<script src="//cdn.tms-dist.lan:433:433/styles/js/scrollreveal.min.js"></script>
-	<script src="dist/js/main.min.js"></script>
-	<script src="dist/js/main.js"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/bootstrap.js"></script>
+	<script src="//cdn.tms-dist.lan:433/styles/js/scrollreveal.min.js"></script>
+	<script src="dist/js/main.min.js" async></script>
+	<script src="dist/js/main.js" async></script>
 	<script>
 		function b(){
 			if ($('header.contact_title').attr('aria-expanded') == 'false') {

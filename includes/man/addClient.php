@@ -554,8 +554,8 @@
         })
     });
 </script>
-<script src="//cdn.tms-dist.lan:433:433/styles/js/jquery-3.4.1.min.js"></script>
-<script src="//cdn.tms-dist.lan:433:433/styles/js/bootstrap.min.js"></script>
+<script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>
+<script src="//cdn.tms-dist.lan:433/styles/js/bootstrap.min.js"></script>
 </script>
 <script>
     $.getScript('//cdn.tms-dist.lan:433:433/styles/js/jquery.easing.min.js', () => {

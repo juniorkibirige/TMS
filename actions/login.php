@@ -10,15 +10,15 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
     $result = mysqli_fetch_assoc($sql);
     if(mysqli_num_rows($sql) == 0){
         setcookie('msg','Specified user does not exist, please try creating an account.',time()+10,'/','.tmsystem.live',true,true);
-        setcookie('user',base64_encode($email),time()+10,'/','tmsystem.live',true,true);
+        setcookie('user',base64_encode($email),time()+10,'/', 'tms.lan',true,true);
         header('Location: /');
     } else {
         if(md5($password) == $result['pass']){
             if(isset($_POST['remember'])) {
-                setcookie('user',base64_encode($email),time()+60*60*24*7,'/','tmsystem.live',true,true);
-                setcookie('passwd',base64_encode($password),time()+60*60*24*7,'/','tmsystem.live',true,true);
+                setcookie('user',base64_encode($email),time()+60*60*24*7,'/', 'tms.lan',true,true);
+                setcookie('passwd',base64_encode($password),time()+60*60*24*7,'/', 'tms.lan',true,true);
             }
-            setcookie('msg','',time()-60*60*24*2,'/','tmsystem.live',true,true);
+            setcookie('msg','',time()-60*60*24*2,'/', 'tms.lan',true,true);
             $sqls = 'select NIN from accounts where username = "'.$email.'"';
             $sqls = mysqli_query($con,$sqls);
             $resultn = mysqli_fetch_assoc($sqls);
@@ -39,7 +39,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_SESSION['id'] = $resultn['NIN'];
                 $_SESSION['fName'] = $results['fName'];
                 $_SESSION['lName'] = $results['lName'];
-                setcookie("login","login",time()+60*60*24*7,'/','tmsystem.live',true,true);
+                setcookie("login","login",time()+60*60*24*7,'/', 'tms.lan',true,true);
                 $header = 'Location: /man/';
                 echo $header;
                 header('Location: /man/');
@@ -49,7 +49,7 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_SESSION['id'] = $resultn['NIN'];
                 $_SESSION['fName'] = $results['fName'];
                 $_SESSION['lName'] = $results['lName'];
-                setcookie("login","login",time()+60*60*24*7,'/','tmsystem.live',true,true);
+                setcookie("login","login",time()+60*60*24*7,'/', 'tms.lan',true,true);
                 $header = 'Location: /csh/';
                 echo $header;
                 header('Location: /csh/');
@@ -59,22 +59,22 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
                 $_SESSION['id'] = $resultn['NIN'];
                 $_SESSION['fName'] = $results['fName'];
                 $_SESSION['lName'] = $results['lName'];
-                setcookie("login","login",time()+60*60*24*7,'/','tmsystem.live',true,true);
+                setcookie("login","login",time()+60*60*24*7,'/', 'tms.lan',true,true);
                 $header = 'Location: /cli/';
                 echo $header;;
                 header('Location: /cli/');
             }
             
         }else if($result['pass'] == NULL) {
-            setcookie('msg','You need to verify your account. Check your email!',time()+10,'/','tmsystem.live',true,true);
+            setcookie('msg','You need to verify your account. Check your email!',time()+10,'/', 'tms.lan',true,true);
             $header = 'Location: /';
             echo $header;
             header('Location: /');
         }
         else {
             setcookie('msg','Invalid password',time()+10,'/','.tmsystem.live',true,true);
-            setcookie('user',base64_encode($email),time()+10,'/','tmsystem.live',true,true);
-            setcookie('passwd',base64_encode($password),time()+10,'/','tmsystem.live',true,true);
+            setcookie('user',base64_encode($email),time()+10,'/', 'tms.lan',true,true);
+            setcookie('passwd',base64_encode($password),time()+10,'/', 'tms.lan',true,true);
             $header = 'Location: /';
             echo $header;
             header('Location: /');
@@ -96,7 +96,7 @@ else if($_SERVER['REQUEST_METHOD'] == 'GET'){
     $result = mysqli_fetch_assoc($sql);
     if(mysqli_num_rows($sql) == 0){
         setcookie('msg','Specified user does not exist, please try creating an account.',time()+10,'/','.tmsystem.live',true,true);
-        setcookie('user',base64_encode($email),time()+10,'/','tmsystem.live',true,true);
+        setcookie('user',base64_encode($email),time()+10,'/', 'tms.lan',true,true);
         header('Location: /');
     } else {
         if(md5($password) == $result['pass']){
@@ -119,7 +119,7 @@ else if($_SERVER['REQUEST_METHOD'] == 'GET'){
                 $_SESSION['id'] = $resultn['NIN'];
                 $_SESSION['fName'] = $results['fName'];
                 $_SESSION['lName'] = $results['lName'];
-                setcookie("return", 1,time()+60*60*10,'/','tmsystem.live',true,true);
+                setcookie("return", 1,time()+60*60*10,'/', 'tms.lan',true,true);
                 header('Location: /man/');
             } else if($result['level'] == 2){
                 $_SESSION['cashier_logged_in'] = true;
@@ -127,7 +127,7 @@ else if($_SERVER['REQUEST_METHOD'] == 'GET'){
                 $_SESSION['id'] = $resultn['NIN'];
                 $_SESSION['fName'] = $results['fName'];
                 $_SESSION['lName'] = $results['lName'];
-                setcookie("return", 1,time()+60*60*10,'/','tmsystem.live',true,true);
+                setcookie("return", 1,time()+60*60*10,'/', 'tms.lan',true,true);
                 header('Location: /csh/');
             } else if($result['level'] == 4){
                 $_SESSION['client_logged_in'] = true;
@@ -135,19 +135,19 @@ else if($_SERVER['REQUEST_METHOD'] == 'GET'){
                 $_SESSION['id'] = $resultn['NIN'];
                 $_SESSION['fName'] = $results['fName'];
                 $_SESSION['lName'] = $results['lName'];
-                setcookie("return", 1,time()+60*60*10,'/','tmsystem.live',true,true);
+                setcookie("return", 1,time()+60*60*10,'/', 'tms.lan',true,true);
                 header('Location: /cli/');
             }
             
         }else if($result['pass'] == NULL) {
-            setcookie('msg','You need to verify your account. Check your email!',time()+10,'/','tmsystem.live',true,true);
+            setcookie('msg','You need to verify your account. Check your email!',time()+10,'/', 'tms.lan',true,true);
             echo "FAILED";
             header('Location: /');
         }
         else {
             setcookie('msg','Invalid password',time()+10,'/','.tmsystem.live',true,true);
-            setcookie('user',base64_encode($email),time()+60*60*24*2,'/','tmsystem.live',true,true);
-            setcookie('passwd',base64_encode($password),time()+60*60*24*2,'/','tmsystem.live',true,true);
+            setcookie('user',base64_encode($email),time()+60*60*24*2,'/', 'tms.lan',true,true);
+            setcookie('passwd',base64_encode($password),time()+60*60*24*2,'/', 'tms.lan',true,true);
             echo "Failed";
             header('Location: /');
         }

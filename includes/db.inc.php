@@ -3,6 +3,7 @@ $DB_HOST = 'localhost';
 $DB_USER = 'development';
 $DB_PASSWD = 'Computer@#4';
 $DB_BASE = 'tenant_management_sys';
+define("MB", 1048576);
 
 $con = mysqli_connect($DB_HOST,$DB_USER,$DB_PASSWD);
 if(!$con){

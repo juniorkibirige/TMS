@@ -44,7 +44,7 @@ if ($_SERVER['REQUEST_METHOD'] !== 'POST') {
                 $conf = mysqli_query($con, $conf);
                 if ($conf) {
                     if (mysqli_num_rows($conf) > 0) {
-                        $tenDet = json_decode(curlpost('https://www.tmsystem.live/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $tn]));
+                        $tenDet = json_decode(curlpost('https://www.tms.lan/actions/getSpecTen.inc.php', 'POST', ['tNIN' => $tn]));
                         if ($tenDet->dets->img == '') {
                             $tenDet->dets->img = '/images/img_avatar2.png';
                         }

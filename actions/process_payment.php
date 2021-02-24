@@ -40,32 +40,32 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         }
         die(json_encode($response));
     }
-    curlpost('https://www.tmsystem.live/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'date' => $datePd, 'ad' => $amtPd, 'rNo' => $receiptNo, 'type' => 'pay_hist']);
+    curlpost('https://www.tms.lan/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'date' => $datePd, 'ad' => $amtPd, 'rNo' => $receiptNo, 'type' => 'pay_hist']);
     if ($tenDet->rent_info->rent_credit > 0) {
         $amtPd += $tenDet->rent_info->rent_credit;
-        curlpost('https://www.tmsystem.live/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'type' => 'credit', 'action' => 'del']);
+        curlpost('https://www.tms.lan/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'type' => 'credit', 'action' => 'del']);
     }
     if ($tenDet->rent_info->defaulted_amt > $amtPd) {
         $tenDet->rent_info->defaulted_amt -= $amtPd;
-        curlpost('https://www.tmsystem.live/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'did' => $tenDet->rent_info->d_id, 'ad' => $tenDet->rent_info->defaulted_amt, 'type' => 'def']);
+        curlpost('https://www.tms.lan/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'did' => $tenDet->rent_info->d_id, 'ad' => $tenDet->rent_info->defaulted_amt, 'type' => 'def']);
         $response['success'] = true;
         unset($response['error']);
         $response['info'] = 'The paid rent is used to clear part of the defaulted Amount. Your Current rent arrears are: ' . $tenDet->rent_info->defaulted_amt . '/=';
     } else if ($tenDet->rent_info->defaulted_amt < $amtPd) {
         if ($tenDet->rent_info->defaulted_amt !== 0) {
             $amtPd -= $tenDet->rent_info->defaulted_amt;
-            curlpost('https://www.tmsystem.live/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'did' => $tenDet->rent_info->d_id, 'ad' => 0, 'type' => 'def', 'action' => 'del']);
+            curlpost('https://www.tms.lan/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'did' => $tenDet->rent_info->d_id, 'ad' => 0, 'type' => 'def', 'action' => 'del']);
             $response['success'] = true;
             $response['info'] = 'All rent arrears have been cleared';
         }
         if ($amtPd < $rpm) {
             $response['success'] = true;
             $response['info'] = 'The paid amount is not enough to clear a month thus it has been stored as credit now ' . $amtPd . '/=';
-            curlpost('https://www.tmsystem.live/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'ad' => $amtPd, 'type' => 'credit', 'action' => 'ins']);
+            curlpost('https://www.tms.lan/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'ad' => $amtPd, 'type' => 'credit', 'action' => 'ins']);
         } else if ($amtPd > $rpm || $amtPd == $rpm) {
             $response['success'] = true;
             unset($response['error']);
-            curlpost('https://www.tmsystem.live/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'rNo' => $receiptNo, 'ad' => intval($_POST['amtPd']), 'pB' => $admin, 'mlp' => datetime($datePd, 'm'), 'type' => 'pdet']);
+            curlpost('https://www.tms.lan/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'rNo' => $receiptNo, 'ad' => intval($_POST['amtPd']), 'pB' => $admin, 'mlp' => datetime($datePd, 'm'), 'type' => 'pdet']);
             $numMths = intval($amtPd / $rpm);
             $amtPd -= ($numMths * $rpm);
             if (isset($tenDet->pay_info->lmpf) && $tenDet->pay_info->lmpf)
@@ -87,10 +87,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
             if ($tenDet->pay_info->ylpf)
                 $cy = $tenDet->pay_info->ylpf;
             $cy += $y;
-            curlpost('https://www.tmsystem.live/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'ad' => $amtPd, 'type' => 'credit', 'action' => 'ins']);
+            curlpost('https://www.tms.lan/actions/updateDefAmount.php', 'POST', ['tNIN' => $ten_nin, 'ad' => $amtPd, 'type' => 'credit', 'action' => 'ins']);
             if (count($tenDet->pay_info) == 0)
                 curlpost(
-                    'https://www.tmsystem.live/actions/updateDefAmount.php',
+                    'https://www.tms.lan/actions/updateDefAmount.php',
                     'POST',
                     [
                         'tNIN' => $ten_nin,
@@ -106,7 +106,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 );
             else
                 curlpost(
-                    'https://www.tmsystem.live/actions/updateDefAmount.php',
+                    'https://www.tms.lan/actions/updateDefAmount.php',
                     'POST',
                     [
                         'tNIN' => $ten_nin,

@@ -6,3 +6,9 @@ ErrorDocument 500 /error/internal-server-error.html
 
 Options -Indexes
 DirectoryIndex index.php
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^gtd(.*)$ /actions/gtd.php?p=$1 [L]
+RewriteRule ^ghint(.*)$ /actions/ghint.man.php?p=$1 [L]
+RewriteRule ^tenspec(.*)$ /actions/getSpecTen.inc.php?p=$1 [L]
+RewriteRule ^tenact(.*)$ /actions/tenaction.man.php?p=$1 [L]
