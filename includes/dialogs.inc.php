@@ -9,6 +9,7 @@
 		right: 0px;
 		z-index: 10000;
 		display: none;
+        background-color: #1c1818ab;
 	}
 
 	.ty-ajax-loading-box {

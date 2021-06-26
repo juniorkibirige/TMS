@@ -21,20 +21,20 @@
 				<ul class="nav navbar-nav" style="float:left;">
 					<?php session_start();
 					if (isset($_SESSION['manager_logged_in']) && $_SESSION['manager_logged_in'] == true) { ?>
+                        <li class="nav-item active">
+                            <a onclick="ten()" href="#list_tenants" class="nav-link">Tenants</a>
+                        </li>
 						<li class="nav-item">
 							<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/man-custom.css" type="text/css" />
-							<a class="nav-link" id="verifier" href="#verifyusers">
+							<a class="nav-link" id="verifier" href="#verifyusers" onclick="verifier()">
 								Verify Users
 							</a>
-						</li>
-						<li class="nav-item">
-							<a onclick="ten()" href="#tenants" class="nav-link">Tenants</a>
 						</li>
 						<li class="nav-item">
 							<a href="#processpayments" class="nav-link" onclick="process()">Process Rent Payments</a>
 						</li>
 						<li class="nav-item">
-							<a href="#tenants" class="nav-link" id="ten_det">Tenants Details</a>
+							<a href="#tenants" class="nav-link" id="ten_det" onclick="tendet()">Tenants Details</a>
 						</li>
 						<li class="nav-item">
 							<a href="#addtenant" onclick="addTen()" class="nav-link" id="add_ten">New Tenant</a>
@@ -91,44 +91,26 @@
 	</nav>
 </div>
 <script>
-	var verifier = document.getElementById("verifier");
-	if (verifier != null) {
-		verifier.addEventListener("click", function() {
-			$("#LTContent").css({
-				display: "none"
-			});
-			$("#ten_list").css({
-				display: "none"
-			});
-			$('#processrent').css({
-				display: 'none'
-			});
-			$('#tendet').css({
-				display: 'none'
-			});
-			$('#newten').css({
-				display: 'none'
-			})
-			$('#Tenact').hide()
-			$("#verify").load("/includes/ver.php");
-		});
-	}
-	$('li.nav-item').on('click', () => {
-		$('.navbar-collapse').removeClass('collapse')
-		$('.navbar-collapse').addClass('collapsing')
-		$('.navbar-collapse').animate({
-			height: '0px',
-		})
-		$('.navbar-collapse').removeClass('collapsing')
-		$('.navbar-collapse').removeClass('show')
-		$('.navbar-collapse').addClass('collapse')
-	})
-	$('#more_nav').on('click', ()=>{
-		$('#more_nav').parent('.dropdown').toggleClass('show');
-		$('#more_nav').next('.dropdown-content').toggleClass('show');
-	})
-	if (window.location.pathname == '/man/' || location.pathname == '/man')
-		tendet()
+    $('li.nav-item').on('click', e => {
+        $('li.nav-item').removeClass('active')
+        $(e.currentTarget).addClass('active')
+    })
+    $('li.nav-item').on('click', () => {
+        $('.navbar-collapse').removeClass('collapse')
+        $('.navbar-collapse').addClass('collapsing')
+        $('.navbar-collapse').animate({
+            height: '0px',
+        })
+        $('.navbar-collapse').removeClass('collapsing')
+        $('.navbar-collapse').removeClass('show')
+        $('.navbar-collapse').addClass('collapse')
+    })
+    $('#more_nav').on('click', ()=>{
+        $('#more_nav').parent('.dropdown').toggleClass('show');
+        $('#more_nav').next('.dropdown-content').toggleClass('show');
+    })
+    if ((window.location.pathname === '/man/' || location.pathname === '/man') && window.location.hash === '')
+        ten()
 </script>
 <style>
 	[data-menu="more-navs"]:hover,
@@ -141,7 +123,7 @@
 		position: absolute;
 		background-color: #f1f1f1;
 		min-width: 160px;
-		box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 		z-index: 1;
 	}
 
