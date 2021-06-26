@@ -7,7 +7,7 @@ if (isset($_COOKIE['login']) && $_COOKIE['login'] == "login" && isset($_COOKIE['
 	echo '<script>
 		window.location = "https://www.tms.lan/actions/login.php?token='.$_COOKIE['token'].'";
 	</script>';
-} else echo "<script> var loggedIn = 0</script>";
+} else echo "<script> let loggedIn = 0</script>";
 ?>
 
 <head>
@@ -762,8 +762,8 @@ if (isset($_COOKIE['login']) && $_COOKIE['login'] == "login" && isset($_COOKIE['
 	<script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>
 	<script src="//cdn.tms-dist.lan:433/styles/js/bootstrap.js"></script>
 	<script src="//cdn.tms-dist.lan:433/styles/js/scrollreveal.min.js"></script>
-	<script src="dist/js/main.min.js" async></script>
-	<script src="dist/js/main.js" async></script>
+	<script src="dist/js/main.min.js" async defer></script>
+	<script src="dist/js/main.js" async defer></script>
 	<script>
 		function b(){
 			if ($('header.contact_title').attr('aria-expanded') == 'false') {

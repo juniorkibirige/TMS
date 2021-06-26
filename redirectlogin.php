@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/bootstrap.min.css">
     <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/custom.css">
     <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/style.css">
-    <script src="//cdn.tms-dist.lan:433/styles/js/main.js" async></script>
+    <script src="//cdn.tms-dist.lan:433/styles/js/main.min.js" async></script>
 </head>
 <style>
     body {
