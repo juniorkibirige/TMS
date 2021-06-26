@@ -10,7 +10,7 @@
     <script src="//cdn.tms-dist.lan:433/styles/js/ver.js"></script>
     <script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
     <script src="//cdn.tms-dist.lan:433/styles/js/navigation.min.js"></script>
-    <script src="//cdn.tms-dist.lan:433/styles/js/main.js" async></script>
+    <script src="//cdn.tms-dist.lan:433/styles/js/main.min.js" async></script>
     <script src="//cdn.tms-dist.lan:433/styles/js/jquery-2.1.3.min.js" crossorigin="anonymous"></script>
     <script src="//cdn.tms-dist.lan:433/styles/js/tenants.min.js"></script>
     <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/css/bootstrap.min.css" type="text/css"/>
