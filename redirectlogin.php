@@ -110,7 +110,7 @@
     <script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>
     <script src="//cdn.tms-dist.lan:433/styles/js/bootstrap.min.js"></script>
     <script src="//cdn.tms-dist.lan:433/styles/js/jquery.easing.min.js"></script>
-    <script src="//cdn.tms-dist.lan:433/styles/js/loginvalidation.js"></script>
+    <script src="//cdn.tms-dist.lan:433/styles/js/loginvalidation.min.js"></script>
     <script src="//cdn.tms-dist.lan:433/styles/js/control.js"></script>
 </body>
 
