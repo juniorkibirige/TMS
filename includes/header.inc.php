@@ -92,6 +92,7 @@
 </div>
 <script>
     $('li.nav-item').on('click', e => {
+
         $('li.nav-item').removeClass('active')
         $(e.currentTarget).addClass('active')
     })

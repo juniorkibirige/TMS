@@ -36,7 +36,6 @@ if (isset($_SESSION['logged_in']) && $_SESSION['logged_in'] == true && $_SESSION
 <script src="//cdn.tms-dist.lan:433/styles/js/jquery-2.1.3.min.js" crossorigin="anonymous"></script>
 <script src="//cdn.tms-dist.lan:433/styles/js/popper.min.js"></script>
 <script src="//cdn.tms-dist.lan:433/styles/js/bootstrap.min.js"></script>
-<script src="//cdn.tms-dist.lan:433/styles/js/jquery-2.1.3.min.js"></script>
 <script src="//cdn.tms-dist.lan:433/styles/js/ver.js"></script>
 <script src="//cdn.tms-dist.lan:433/styles/js/navigation.min.js"></script>
 <script src="//cdn.tms-dist.lan:433/styles/js/tenants.min.js"></script>

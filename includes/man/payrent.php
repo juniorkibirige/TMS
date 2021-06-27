@@ -1,6 +1,6 @@
-<script src="//cdn.tms-dist.lan:433/styles/js/payrent.js" crossorigin="anonymous"></script>
-<?php session_start(); ?>
+<script src="//cdn.tms-dist.lan:433/styles/js/payrent.min.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/font-awesome/css/all.css">
+<?php session_start(); ?>
 <div class="payrent">
     <div class="pr_header">
         <center><strong>Payment Processing Page</strong></center>
@@ -70,7 +70,7 @@
                                         </div>
                                         <div class="form-group">
                                             <label for="tID">Tenant Identification:</label>
-                                            <input type="text" class="form-control" name="tID" placeholder="Enter Tenant Names Below:" required="required" readonly>
+                                            <input type="text" class="form-control" name="tID" placeholder="Enter tenant names above:" required="required" readonly>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-md-7 col-lg-12">
@@ -179,7 +179,7 @@
     }
 </style>
 <script>
-    $.getScript('https://cdn.tms-dist.lan:433/styles/js/moment.min.js', ()=>{
+    $.getScript('//cdn.tms-dist.lan:433/styles/js/moment.min.js', ()=>{
         console.log("Moment loaded")
         $.getScript('//cdn.tms-dist.lan:433/styles/bdtp/js/bootstrap-datetimepicker.min.js', ()=>{
             console.log("Date-Time Picker Plugin Loaded")

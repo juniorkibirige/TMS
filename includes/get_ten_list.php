@@ -59,17 +59,25 @@ if ($mysql != false)
                         </div>
                     </div>
                 </form>
-                <table class="table-striped table-hover .table-responsive panel panel-default credit-card-box" style="width: 100%; table-layout: auto"
+                <table class="table-striped table-hover .table-responsive panel panel-default credit-card-box"
+                       style="width: 100%; table-layout: auto"
                        border="1px #ddd solid">
                     <thead class="panel-heading display-table">
-                    <tr>
-                        <th class="d-none d-md-table-cell" style="text-align: left; padding: 10px 10px 4px 10px;">No.</th>
+                    <tr class="panel-heading display-table">
+                        <th class="d-none d-md-table-cell" style="text-align: left; padding: 10px 10px 4px 10px;">No.
+                        </th>
                         <th style="text-align: center; padding: 10px 10px 4px 10px;">NIN</th>
                         <th style="text-align: left; padding: 10px 10px 4px 10px;">First Name</th>
                         <th style="text-align: left; padding: 10px 10px 4px 10px;">Last Name</th>
-                        <th class="d-none d-md-table-cell" style="text-align: center; padding: 10px 10px 4px 10px;">House #</th>
-                        <th class="d-none d-md-table-cell" style="text-align: left; padding: 10px 10px 4px 10px;">Location</th>
-                        <th class="d-none d-md-table-cell" style="text-align: center; padding: 10px 10px 4px 10px;">In Debt</th>
+                        <th class="d-none d-md-table-cell" style="text-align: center; padding: 10px 10px 4px 10px;">
+                            House #
+                        </th>
+                        <th class="d-none d-md-table-cell" style="text-align: left; padding: 10px 10px 4px 10px;">
+                            Location
+                        </th>
+                        <th class="d-none d-md-table-cell" style="text-align: center; padding: 10px 10px 4px 10px;">In
+                            Debt
+                        </th>
                     </tr>
                     </thead>
                     <tbody class="panel-body">
@@ -79,8 +87,8 @@ if ($mysql != false)
                         echo "<tr>";
                         echo "<td class='d-none d-md-table-cell' style='text-align: center; padding: 10px 10px 4px 10px;'>";
                         echo $i++;
-                        echo"</td>";
-                        echo "<td style='text-align: center; padding: 10px 10px 4px 10px;'><a href='/man?nin=".$info['nin']."#tenants'>";
+                        echo "</td>";
+                        echo "<td style='text-align: center; padding: 10px 10px 4px 10px;'><a href='/man?nin=" . $info['nin'] . "#tenants'>";
                         echo $info['nin'];
                         echo '</a></td>';
                         echo '<td style="text-align: left; padding: 10px 10px 4px 10px;">';

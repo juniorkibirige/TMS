@@ -605,24 +605,6 @@
         }
     })
 
-    function loader(ajax = false) {
-        $('#ajax_overlay').css({
-            display: 'block'
-        })
-        $('#ajax_loading_box').css({
-            display: 'block'
-        })
-        if (!ajax)
-            setTimeout(function () {
-                $('#ajax_overlay').css({
-                    display: 'none'
-                })
-                $('#ajax_loading_box').css({
-                    display: 'none'
-                })
-            }, 3000)
-    }
-
     $('.update_ten').css({
         display: 'none'
     })
