@@ -5,6 +5,7 @@ ghls/webscraper-env/
 .htaccess
 logs
 *.log
+*/img/*
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
