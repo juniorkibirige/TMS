@@ -88,7 +88,7 @@ if ($mysql != false)
                         echo "<td class='d-none d-md-table-cell' style='text-align: center; padding: 10px 10px 4px 10px;'>";
                         echo $i++;
                         echo "</td>";
-                        echo "<td style='text-align: center; padding: 10px 10px 4px 10px;'><a href='/man?nin=" . $info['nin'] . "#tenants'>";
+                        echo "<td style='text-align: center; padding: 10px 10px 4px 10px;'><a href='/man?nin=" . $info['nin'] . "#tenants' target='_blank'>";
                         echo $info['nin'];
                         echo '</a></td>';
                         echo '<td style="text-align: left; padding: 10px 10px 4px 10px;">';
