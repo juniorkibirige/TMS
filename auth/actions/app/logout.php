@@ -1,6 +1,6 @@
 <?php session_start();
 require_once('../../includes/db.inc.php');
-$email = mysqli_real_escape_string($con, $_GET['nin']);
+$email = mysqli_real_escape_string($con, $_POST['nin']);
 $sqls = 'select NIN from accounts where NIN = "'.$email.'"';
 $sqls = mysqli_query($con,$sqls);
 $resultn = mysqli_fetch_assoc($sqls);
