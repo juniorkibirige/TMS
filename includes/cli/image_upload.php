@@ -1,5 +1,6 @@
 <?php
 require_once('../db.inc.php');
+global $con;
 $files = null;
 $user_id = null;
 $response = array();
@@ -12,7 +13,11 @@ if (empty($_FILES))
 if (!empty($_FILES['file']) && !empty($_POST['user_id'])) {
     $files = $_FILES['file'];
     $user_id = mysqli_real_escape_string($con, $_POST['user_id']);
-    $target_dir = $ROOT."includes/img/";
+    $ROOT = explode('/', __DIR__);
+    array_pop($ROOT);
+    $ROOT = implode('/', $ROOT);
+//    die($ROOT.'/img');
+    $target_dir = "../img/";
     $img_dir = "/includes/img/";
     $target_file_name = $date . '_' . basename($files['name']);
     $target_file = $target_dir . $target_file_name;

@@ -1,6 +1,6 @@
-<script src="//cdn.tms-dist.lan:433/styles/js/payrent.js" crossorigin="anonymous"></script>
-<?php session_start(); ?>
+<script src="//cdn.tms-dist.lan:433/styles/js/payrent.min.js" crossorigin="anonymous"></script>
 <link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/font-awesome/css/all.css">
+<?php session_start(); ?>
 <div class="payrent">
     <div class="pr_header">
         <center><strong>Payment Processing Page</strong></center>
@@ -20,7 +20,7 @@
                             </div>
                         </div>
                         <div class="panel-body">
-                            <form id="payment-form" class="payment-form" role="form" method="post" action="/actions/process_payment.php">
+                            <form id="payment-form" class="payment-form" role="form" method="post" action="/action/process_payment">
                                 <div class="row">
                                     <div class="col-xs-3 col-sm-6">
                                         <div class="form-group">
@@ -48,10 +48,6 @@
                                 <div class="row">
                                     <div class="col-xs-12 col-md-7 col-lg-12">
                                         <div class="form-group">
-                                            <label for="tID">Tenant Identification:</label>
-                                            <input type="text" class="form-control" name="tID" placeholder="Enter Tenant Names Below:" required="required" readonly>
-                                        </div>
-                                        <div class="form-group">
                                             <label for="tenName">Tenant Name: <span class="alert-error name" style="color:red"></span></label>
                                             <div class="row">
                                                 <div class="col-xs-6 col-md-6 col-lg-6">
@@ -72,11 +68,9 @@
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <div class="col-xs-12 col-md-7 col-lg-12">
                                         <div class="form-group">
-                                            <label for="amtPd">Amount Paid:</label>
-                                            <input type="text" name="amtPd" onfocus="CheckName(this.parentNode.parentNode.parentNode)" placeholder="Amount Paid" required="required" class="form-control">
+                                            <label for="tID">Tenant Identification:</label>
+                                            <input type="text" class="form-control" name="tID" placeholder="Enter tenant names above:" required="required" readonly>
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-md-7 col-lg-12">
@@ -99,6 +93,12 @@
                                                     <input type="text" name="rpm" class="form-control" placeholder="Rent Per Month" required="required" readonly="readonly">
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-xs-12 col-md-7 col-lg-12">
+                                        <div class="form-group">
+                                            <label for="amtPd">Amount Paid:</label>
+                                            <input type="text" name="amtPd" onfocus="CheckName(this.parentNode.parentNode.parentNode)" placeholder="Amount Paid" required="required" class="form-control">
                                         </div>
                                     </div>
                                     <div class="col-xs-12 col-md-7 col-lg-12">
@@ -178,12 +178,14 @@
         min-width: 180px;
     }
 </style>
-<script src="//cdn.tms-dist.lan:433/styles/js/moment.min.js" crossorigin="anonymous"></script>
-<script src="//cdn.tms-dist.lan:433/styles/js/moment.min.js" crossorigin="anonymous"></script>
-<script src="//cdn.tms-dist.lan:433/styles/js/moment.min.js" crossorigin="anonymous"></script>
-<script src="//cdn.tms-dist.lan:433/styles/js/moment.min.js" crossorigin="anonymous"></script>
-<link rel="stylesheet" href="//cdn.tms-dist.lan:433/styles/bdtp/css/bootstrap-datetimepicker.min.css">
-<script type="text/javascript" src="//cdn.tms-dist.lan:433/styles/bdtp/js/bootstrap-datetimepicker.min.js">
+<script>
+    $.getScript('//cdn.tms-dist.lan:433/styles/js/moment.min.js', ()=>{
+        console.log("Moment loaded")
+        $.getScript('//cdn.tms-dist.lan:433/styles/bdtp/js/bootstrap-datetimepicker.min.js', ()=>{
+            console.log("Date-Time Picker Plugin Loaded")
+        })
+    })
+</script>
 </script>
 <script>
     dtp = () => {

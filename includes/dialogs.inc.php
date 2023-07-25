@@ -9,6 +9,7 @@
 		right: 0px;
 		z-index: 10000;
 		display: none;
+        background-color: #1c1818ab;
 	}
 
 	.ty-ajax-loading-box {
@@ -31,7 +32,7 @@
 		border-radius: 5px;
 	}
 </style>
-<div class="tms-modal" id="id01" style="cursor:pointer; 
+<div class="tms-modal" id="id01" style="cursor:pointer;
 		<?php
 		session_start();
 		if (isset($_COOKIE['msg'])) { ?>
@@ -118,11 +119,18 @@
 																																			}
 																																			?>>
 
-					<label for="user"><b>Username</b></label>
-					<input class="tms-input tms-border tms-margin-bottom form-control" type="text" placeholder="Enter Username" name="user" required <?php if (isset($_COOKIE['uname'])) {
-																																							echo 'value=' . base64_decode($_COOKIE['uname']);
+                    <label for="user"><b>Username</b></label>
+                    <input class="tms-input tms-border tms-margin-bottom form-control" type="text" placeholder="Enter Username" name="user" required <?php if (isset($_COOKIE['uname'])) {
+                        echo 'value=' . base64_decode($_COOKIE['uname']);
+                    }
+                    ?>>
+
+                    <label for="user"><b>Mobile Number</b></label>
+                    <input class="tms-input tms-border tms-margin-bottom form-control" type="text" placeholder="Enter Mobile Number" name="tel" required <?php if (isset($_COOKIE['tel'])) {
+																																							echo 'value=' . base64_decode($_COOKIE['tel']);
 																																						}
-																																						?>>
+							?>>
+
 					Select account type:<br>
 					<div class="check">
 						<input type="checkbox" name="acc_man" />&nbsp;

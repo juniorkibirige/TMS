@@ -258,7 +258,7 @@
     </div>
 </div>
 <script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>
-<script src="//cdn.tms-dist.lan:433/styles/js/development/client.min.js"></script>
+<script src="//cdn.tms-dist.lan:433/styles/js/client.min.js"></script>
 
 <script>
     $('#rT').on('change', _ => {

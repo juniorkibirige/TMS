@@ -554,14 +554,12 @@
         })
     });
 </script>
-<script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>
-<script src="//cdn.tms-dist.lan:433/styles/js/bootstrap.min.js"></script>
-</script>
+<!--<script src="//cdn.tms-dist.lan:433/styles/js/jquery-3.4.1.min.js"></script>-->
+<!--<script src="//cdn.tms-dist.lan:433/styles/js/bootstrap.min.js"></script>-->
 <script>
-    $.getScript('//cdn.tms-dist.lan:433:433/styles/js/jquery.easing.min.js', () => {
-        $.getScript('//cdn.tms-dist.lan:433:433/styles/js/jquery.easing.min.js')
-        $.getScript('//cdn.tms-dist.lan:433:433/styles/font-awesome/js/all.js')
-        $.getScript('//cdn.tms-dist.lan:433:433/styles/js/development/client.min.js')
+    $.getScript('//cdn.tms-dist.lan:433/styles/js/jquery.easing.min.js', () => {
+        $.getScript('//cdn.tms-dist.lan:433/styles/font-awesome/js/all.js')
+        $.getScript('//cdn.tms-dist.lan:433/styles/js/client.min.js')
     })
     $.getScript("//cdn.tms-dist.lan:433/styles/js/moment.min.js", () => {
         $.getScript('//cdn.tms-dist.lan:433/styles/bdtp/js/bootstrap-datetimepicker.min.js', () => {
