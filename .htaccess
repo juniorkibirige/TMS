@@ -4,6 +4,10 @@ ErrorDocument 403 /error/forbidden.html
 ErrorDocument 404 /error/404Error.html
 ErrorDocument 500 /error/internal-server-error.html
 
+# Header add Access-Control-Allow-Origin "*"
+# Header add Access-Control-Allow-Headers "origin, x-requested-with, content-type"
+# Header add Access-Control-Allow-Methods: "GET,POST,OPTIONS,DELETE,PUT,UPDATE"
+
 Options -Indexes
 DirectoryIndex index.php
 RewriteEngine On
